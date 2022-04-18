@@ -26,10 +26,13 @@ import VolumeOffRoundedIcon from '@mui/icons-material/VolumeOffRounded';
 import VolumeUpRoundedIcon from '@mui/icons-material/VolumeUpRounded';
 import {videoPlayState} from '../atoms/videoAtom'
 function Slider() {
-  
+  // window.addEventListener('load',() => {
+  //   console.log()
+  // })
   const [isMuteVideo,setIsMuteVideo] = useState(false)
   const [isStopVideo,setIsStopVideo] = useState(false)
   const [likes,setLikes] = useState(0)
+  const WindowHeight = window.innerHeight;
   const videoRef = useRef()
   
   
@@ -38,6 +41,7 @@ function Slider() {
   
   return (
     <RecoilRoot>
+      <div style={{height:WindowHeight}}>
       <Swiper
       modules={[Mousewheel]}
       spaceBetween={0}
@@ -50,11 +54,11 @@ function Slider() {
       onSwiper={(swiper) => {
         document.querySelector("video").play()
       }}
-      className="h-full w-full"
+      className={`h-full w-full`}
     >
       {datas.map((data,index) => (
         <SwiperSlide key={data.key} className="h-screnn flex justify-center items-center">
-        <div className=" w-full sm:w-[400px] mx-auto my-auto h-full  sm:h-[80%]  flex items-center justify-center">
+        <div className={`w-full sm:w-[400px] mx-auto my-auto h-full  sm:h-[80%]  flex items-center justify-center`}>
           <div className="flex h-full   w-full sm:w-[90%] relative items-end justify-center">
             <div className="h-full  w-full  relative">
               <PauseMuteBTNS/>
@@ -87,6 +91,7 @@ function Slider() {
       </SwiperSlide>
       ))}
     </Swiper>
+      </div>
     </RecoilRoot>
     
   )
