@@ -32,7 +32,7 @@ function Slider() {
   const [isMuteVideo,setIsMuteVideo] = useState(false)
   const [isStopVideo,setIsStopVideo] = useState(false)
   const [likes,setLikes] = useState(0)
-  const WindowHeight = window.innerHeight;
+  const WindowHeight = document.documentElement.clientHeight;
   const videoRef = useRef()
   
   
